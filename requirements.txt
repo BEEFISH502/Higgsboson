@@ -1,0 +1,12 @@
+
+numpy
+pandas
+matplotlib
+plotly
+uproot
+awkward
+jupyter
+scipy
+seaborn
+vector
+hist

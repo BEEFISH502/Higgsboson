@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+#Virtual environment
+.venv/
+venv/
+env/
+
+#IDE
+.idea/
+
+#Jupyter
+.ipynb_checkpoints/
+
+#C++ / ROOT build artifacts
+build/
+cmake-build-*/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Generated outputs
+plots/
+output/
+
+#Optional: large local data files
+/data/raw/
+
+

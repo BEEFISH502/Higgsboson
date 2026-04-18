@@ -1,0 +1,173 @@
+CATEGORIES
+Identity:
+muminus_hasMuon is in muons
+muminus_isMuon is in muons
+muplus_hasMuon is in muons
+muplus_isMuon is in muons
+
+Detector ID:
+muminus_ID is in scalars
+muplus_ID is in scalars
+
+
+Detector presence:
+muminus_hasCalo is in scalars
+muminus_hasRich is in scalars
+muplus_hasCalo is in scalars
+muplus_hasCalo is in scalars
+muplus_hasRich is in scalars
+
+Detector Usage:
+muplus_UsedRichAerogel is in scalars
+muplus_UsedRich1Gas is in scalars
+muplus_UsedRich2Gas is in scalars
+muplus_UsedRichAerogel is in scalars
+muplus_UsedRich1Gas is in scalars
+muplus_UsedRich2Gas is in scalars
+muminus_UsedRichAerogel is in scalars
+muminus_UsedRich1Gas is in scalars
+muminus_UsedRich2Gas is in scalars
+
+Rich Thresholds:
+muminus_RichAboveElThres is in b_hadrons
+muminus_RichAboveMuThres is in b_hadrons
+muminus_RichAbovePiThres is in b_hadrons
+muminus_RichAboveKaThres is in b_hadrons
+muminus_RichAbovePrThres is in b_hadrons
+muplus_RichAboveElThres is in b_hadrons
+muplus_RichAboveMuThres is in b_hadrons
+muplus_RichAbovePiThres is in b_hadrons
+muplus_RichAboveKaThres is in b_hadrons
+muplus_RichAbovePrThres is in b_hadrons
+
+PID / classifier:
+muminus_PIDe is in scalars
+muminus_PIDmu is in scalars
+muminus_PIDK is in scalars
+muminus_PIDp is in scalars
+muminus_PIDd is in scalars
+muminus_ProbNNe is in b_hadrons
+muminus_ProbNNk is in b_hadrons
+muminus_ProbNNp is in b_hadrons
+muminus_ProbNNpi is in b_hadrons
+muminus_ProbNNmu is in b_hadrons
+muminus_ProbNNd is in b_hadrons
+muminus_ProbNNghost is in b_hadrons
+muminus_MC12TuneV2_ProbNNe is in b_hadrons
+muminus_MC12TuneV2_ProbNNmu is in b_hadrons
+muminus_MC12TuneV2_ProbNNpi is in b_hadrons
+muminus_MC12TuneV2_ProbNNk is in b_hadrons
+muminus_MC12TuneV2_ProbNNp is in b_hadrons
+muminus_MC12TuneV2_ProbNNghost is in b_hadrons
+muminus_MC12TuneV3_ProbNNe is in b_hadrons
+muminus_MC12TuneV3_ProbNNmu is in b_hadrons
+muminus_MC12TuneV3_ProbNNpi is in b_hadrons
+muminus_MC12TuneV3_ProbNNk is in b_hadrons
+muminus_MC12TuneV3_ProbNNp is in b_hadrons
+muminus_MC12TuneV3_ProbNNghost is in b_hadrons
+muminus_MC12TuneV4_ProbNNe is in b_hadrons
+muminus_MC12TuneV4_ProbNNmu is in b_hadrons
+muminus_MC12TuneV4_ProbNNpi is in b_hadrons
+muminus_MC12TuneV4_ProbNNk is in b_hadrons
+muminus_MC12TuneV4_ProbNNp is in b_hadrons
+muminus_MC12TuneV4_ProbNNghost is in b_hadrons
+muminus_MC15TuneV1_ProbNNe is in b_hadrons
+muminus_MC15TuneV1_ProbNNmu is in b_hadrons
+muminus_MC15TuneV1_ProbNNpi is in b_hadrons
+muminus_MC15TuneV1_ProbNNk is in b_hadrons
+muminus_MC15TuneV1_ProbNNp is in b_hadrons
+muminus_MC15TuneV1_ProbNNghost is in b_hadrons
+muplus_PIDe is in scalars
+muplus_PIDmu is in scalars
+muplus_PIDK is in scalars
+muplus_PIDp is in scalars
+muplus_PIDd is in scalars
+muplus_ProbNNe is in b_hadrons
+muplus_ProbNNk is in b_hadrons
+muplus_ProbNNp is in b_hadrons
+muplus_ProbNNpi is in b_hadrons
+muplus_ProbNNmu is in b_hadrons
+muplus_ProbNNd is in b_hadrons
+muplus_ProbNNghost is in b_hadrons
+muplus_MC12TuneV2_ProbNNe is in b_hadrons
+muplus_MC12TuneV2_ProbNNmu is in b_hadrons
+muplus_MC12TuneV2_ProbNNpi is in b_hadrons
+muplus_MC12TuneV2_ProbNNk is in b_hadrons
+muplus_MC12TuneV2_ProbNNp is in b_hadrons
+muplus_MC12TuneV2_ProbNNghost is in b_hadrons
+muplus_MC12TuneV3_ProbNNe is in b_hadrons
+muplus_MC12TuneV3_ProbNNmu is in b_hadrons
+muplus_MC12TuneV3_ProbNNpi is in b_hadrons
+muplus_MC12TuneV3_ProbNNk is in b_hadrons
+muplus_MC12TuneV3_ProbNNp is in b_hadrons
+muplus_MC12TuneV3_ProbNNghost is in b_hadrons
+muplus_MC12TuneV4_ProbNNe is in b_hadrons
+muplus_MC12TuneV4_ProbNNmu is in b_hadrons
+muplus_MC12TuneV4_ProbNNpi is in b_hadrons
+muplus_MC12TuneV4_ProbNNk is in b_hadrons
+muplus_MC12TuneV4_ProbNNp is in b_hadrons
+muplus_MC12TuneV4_ProbNNghost is in b_hadrons
+muplus_MC15TuneV1_ProbNNe is in b_hadrons
+muplus_MC15TuneV1_ProbNNmu is in b_hadrons
+muplus_MC15TuneV1_ProbNNpi is in b_hadrons
+muplus_MC15TuneV1_ProbNNk is in b_hadrons
+muplus_MC15TuneV1_ProbNNp is in b_hadrons
+muplus_MC15TuneV1_ProbNNghost is in b_hadrons
+
+Kinematics:
+muminus_P is in scalars
+muminus_PT is in scalars
+muminus_PE is in scalars
+muminus_PX is in scalars
+muminus_PY is in scalars
+muminus_PZ is in scalars
+muminus_M is in scalars
+muplus_P is in scalars
+muplus_PT is in scalars
+muplus_PE is in scalars
+muplus_PX is in scalars
+muplus_PY is in scalars
+muplus_PZ is in scalars
+muplus_M is in scalars
+
+Track / vertex:
+muminus_OWNPV_X is in scalars
+muminus_OWNPV_Y is in scalars
+muminus_OWNPV_Z is in scalars
+muminus_OWNPV_XERR is in scalars
+muminus_OWNPV_YERR is in scalars
+muminus_OWNPV_ZERR is in scalars
+muminus_OWNPV_CHI2 is in scalars
+muminus_OWNPV_NDOF is in scalars
+muminus_OWNPV_COV_ is in scalars
+muminus_IP_OWNPV is in scalars
+muminus_IPCHI2_OWNPV is in scalars
+muminus_ORIVX_X is in scalars
+muminus_ORIVX_Y is in scalars
+muminus_ORIVX_Z is in scalars
+muminus_ORIVX_XERR is in scalars
+muminus_ORIVX_YERR is in scalars
+muminus_ORIVX_ZERR is in scalars
+muminus_ORIVX_CHI2 is in scalars
+muminus_ORIVX_NDOF is in scalars
+muminus_ORIVX_COV_ is in scalars
+muplus_OWNPV_X is in scalars
+muplus_OWNPV_Y is in scalars
+muplus_OWNPV_Z is in scalars
+muplus_OWNPV_XERR is in scalars
+muplus_OWNPV_YERR is in scalars
+muplus_OWNPV_ZERR is in scalars
+muplus_OWNPV_CHI2 is in scalars
+muplus_OWNPV_NDOF is in scalars
+muplus_OWNPV_COV_ is in scalars
+muplus_IP_OWNPV is in scalars
+muplus_IPCHI2_OWNPV is in scalars
+muplus_ORIVX_X is in scalars
+muplus_ORIVX_Y is in scalars
+muplus_ORIVX_Z is in scalars
+muplus_ORIVX_XERR is in scalars
+muplus_ORIVX_YERR is in scalars
+muplus_ORIVX_ZERR is in scalars
+muplus_ORIVX_CHI2 is in scalars
+muplus_ORIVX_NDOF is in scalars
+muplus_ORIVX_COV_ is in scalars

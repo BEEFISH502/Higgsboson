@@ -1,0 +1,6 @@
+muplus_hasRich
+muplus_hasCalo
+muminus_hasRich
+muminus_hasCalo
+Kplus_hasRich
+Kplus_hasCalo

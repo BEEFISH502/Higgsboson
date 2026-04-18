@@ -1,0 +1,1040 @@
+Defined in uproot.models.TBranch on line 430.
+
+Inheritance order:
+
+uproot.TBranch
+
+uproot.behaviors.TBranch.HasBranches
+
+collections.abc.Mapping
+
+collections.abc.Collection
+
+collections.abc.Sized
+
+collections.abc.Iterable
+
+collections.abc.Container
+
+uproot.model.VersionedModel
+
+uproot.Model
+
+classuproot.models.TBranch.Model_TBranch_v13
+A uproot.model.VersionedModel for TBranch version 13.
+
+member_names
+Model_TBranch_v13.member_names
+array
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.array(interpretation=None, entry_start=None, entry_stop=None, *, decompression_executor=None, interpretation_executor=None, array_cache='inherit', library='ak', ak_add_doc=False)
+Parameters
+:
+interpretation (None or uproot.interpretation.Interpretation) – An interpretation of the TBranch data as an array. If None, the standard interpretation is used, which is derived from uproot.interpretation.identify.interpretation_of.
+
+entry_start (None or int) – The first entry to include. If None, start at zero. If negative, count from the end, like a Python slice.
+
+entry_stop (None or int) – The first entry to exclude (i.e. one greater than the last entry to include). If None, stop at num_entries. If negative, count from the end, like a Python slice.
+
+decompression_executor (None or Executor with a submit method) – The executor that is used to decompress TBaskets; if None, the file’s decompression_executor is used.
+
+interpretation_executor (None or Executor with a submit method) – The executor that is used to interpret uncompressed TBasket data as arrays; if None, the file’s interpretation_executor is used.
+
+array_cache ("inherit", None, MutableMapping, or memory size) – Cache of arrays; if “inherit”, use the file’s cache; if None, do not use a cache; if a memory size, create a new cache of this size.
+
+library (str or uproot.interpretation.library.Library) – The library that is used to represent arrays. Options are "np" for NumPy, "ak" for Awkward Array, and "pd" for Pandas.
+
+ak_add_doc (bool | dict) – If True and library="ak", add the TBranch title to the Awkward __doc__ parameter of the array. if dict = {key:value} and library="ak", add the TBranch value to the Awkward key parameter of the array.
+
+Returns the TBranch data as an array.
+
+For example:
+
+array = tree
+array = tree.arrays(["x", "y"])    # only reads branches "x" and "y"
+array
+<Array [{x: -41.2, y: 17.4}, ... {x: 32.5, y: 1.2}], type='2304 * {"x": float64,...'>
+array["x"]
+<Array [-41.2, 35.1, 35.1, ... 32.4, 32.5] type='2304 * float64'>
+array["y"]
+<Array [17.4, -16.6, -16.6, ... 1.2, 1.2, 1.2] type='2304 * float64'>
+See also arrays to read multiple TBranches into a group of arrays or an array-group.
+
+name
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.name
+Name of the TBranch.
+
+Note that TBranch names are not guaranteed to be unique; it is sometimes necessary to address a branch by its index.
+
+title
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.title
+Title of the TBranch.
+
+object_path
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.object_path
+Object path of the TBranch.
+
+cache_key
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.cache_key
+String that uniquely specifies this TBranch in its path, to use as part of object and array cache keys.
+
+index
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.index
+Integer position of this TBranch in its parent’s list of branches.
+
+Useful for cases in which the name is not unique: the non-recursive index is always unique.
+
+interpretation
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.interpretation
+The standard uproot.interpretation.Interpretation of this TBranch as an array, derived from uproot.interpretation.identify.interpretation_of.
+
+If no interpretation could be found, the value of this property would be a uproot.interpretation.identify.UnknownInterpretation, which is a Python Exception. Since the exception is returned, rather than raised, a branch lacking an interpretation is not a fatal error.
+
+However, any attempt to use this exception object as an uproot.interpretation.Interpretation causes it to raise itself: attempting to read a branch lacking an interpretation is a fatal error.
+
+typename
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.typename
+The C++ typename of the TBranch, derived from its interpretation. If the interpretation is uproot.interpretation.identify.UnknownInterpretation, the typename is "unknown".
+
+num_entries
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.num_entries
+The number of entries in the TBranch, as reported by fEntries.
+
+In principle, this could disagree with the num_entries, which is from the TTree’s fEntries.
+
+The TBranch also has a fEntryNumber, which ought to be equal to the TBranch and TTree’s fEntries, and the last value of entry_offsets ought to be equal to the number of entries as well.
+
+entry_offsets
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.entry_offsets
+The starting and stopping entry numbers for all the TBaskets in the TBranch as a list of increasing, non-negative integers.
+
+The number of entry_offsets in this list of integers is one more than the number of TBaskets. The first is 0 and the last is the number of entries (num_entries).
+
+basket_entry_start_stop
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.basket_entry_start_stop(basket_num)
+The starting and stopping entry number for TBasket number basket_num.
+
+tree
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.tree
+The TTree to which this TBranch belongs. The branch might be deeply nested; this property ascends all the way to the top.
+
+top_level
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.top_level
+True if this branch’s immediate parent is the TTree; False otherwise.
+
+streamer
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.streamer
+The TStreamerInfo or TStreamerElement for this TBranch, which may be None.
+
+If the streamers have not yet been read, this method might cause them to be read. (Only TBranchElements can have streamers.)
+
+context
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.context
+Auxiliary data used in deserialization. This is a copy of the context dict at the time that the TBranch was deserialized with "in_TBranch": True added.
+
+aliases
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.aliases
+The aliases, which are used as the aliases argument to arrays, iterate, uproot.iterate, and uproot.concatenate if one is not given.
+
+The return type is always a dict of str → str, even if there are no aliases (an empty dict).
+
+count_branch
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.count_branch
+The TBranch object in which this branch’s “counts” reside or None if this branch has no “counts”.
+
+count_leaf
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.count_leaf
+The TLeaf object of this branch’s “counts” or None if this branch has no “counts”.
+
+compression
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.compression
+A uproot.compression.Compression object describing the compression setting for the TBranch.
+
+Note that different TBranches in a TTree can be compressed differently from each other, and they can be compressed differently from the file’s global compression setting.
+
+It is also in principle possible for the blocks in each TBasket to be compresssed differently: see block_compression_info if you’re paranoid.
+
+compressed_bytes
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.compressed_bytes
+The number of compressed bytes in all TBaskets of this TBranch, including the TKey headers (which are always uncompressed).
+
+This information is specified in the TBranch metadata (fZipBytes) and can be determined without reading any additional data.
+
+uncompressed_bytes
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.uncompressed_bytes
+The number of uncompressed bytes in all TBaskets of this TBranch, including the TKey headers.
+
+This information is specified in the TBranch metadata (fTotBytes) and can be determined without reading any additional data.
+
+compression_ratio
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.compression_ratio
+The number of uncompressed bytes divided by the number of compressed bytes for this TBranch.
+
+See compressed_bytes and uncompressed_bytes.
+
+num_baskets
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.num_baskets
+The number of TBaskets in this TBranch, including both normal (free) TBaskets and embedded_baskets.
+
+basket
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.basket(basket_num)
+The uproot.models.TBasket.Model_TBasket at index basket_num.
+
+It may be a normal (free) TBasket or one of the embedded_baskets.
+
+basket_chunk_cursor
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.basket_chunk_cursor(basket_num)
+Returns a uproot.source.chunk.Chunk and uproot.Cursor as a 2-tuple for a given basket_num.
+
+If the file source is uproot.MemmapSource and the file gets closed, accessing the Chunk would cause a segfault. If that’s a possibility, be sure to call uproot.source.chunk.Chunk.detach_memmap to ensure that any memmap-derived data gets copied for safety.
+
+basket_compressed_bytes
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.basket_compressed_bytes(basket_num)
+The number of compressed bytes for the TBasket at basket_num, including the TKey header.
+
+The number of compressed bytes is specified in the TBranch metadata and can be determined without reading any additional data. The uncompressed bytes requires reading the TBasket’s TKey at least.
+
+basket_uncompressed_bytes
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.basket_uncompressed_bytes(basket_num)
+The number of uncompressed bytes for the TBasket at basket_num, including the TKey header.
+
+The number of uncompressed bytes cannot be determined without reading a TKey, which are small, but may be slow for remote connections because of the latency of round-trip requests.
+
+basket_key
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.basket_key(basket_num)
+The TKey (uproot.reading.ReadOnlyKey) for the TBasket at basket_num.
+
+Only applies to normal (free) TBaskets, not embedded_baskets.
+
+embedded_baskets
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.embedded_baskets
+The TBaskets that are embedded within the TBranch metadata, usually because the ROOT process that was writing the file closed unexpectedly.
+
+entries_to_ranges_or_baskets
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.entries_to_ranges_or_baskets(entry_start, entry_stop)
+Returns a list of (start, stop) integer pairs for free (normal) TBaskets and uproot.models.TBasket.Model_TBasket objects for embedded TBaskets.
+
+The intention is for this list to be updated in place, replacing (start, stop) integer pairs with uproot.models.TBasket.Model_TBasket objects as they get read and interpreted.
+
+debug
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.debug(entry, skip_bytes=None, limit_bytes=None, dtype=None, offset=0, stream=<_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>)
+Parameters
+:
+entry (int) – Entry number to inspect. Note: this debugging routine is not applicable to data without entry offsets (nor would it be needed).
+
+skip_bytes (int) – Number of bytes to skip before presenting the remainder of the entry. May be negative, to examine the byte stream before the entry.
+
+limit_bytes (None or int) – Number of bytes to limit the output to. A line of debugging output (without any offset) is 20 bytes, so multiples of 20 show full lines. If None, everything is shown to the end of the entry, which might be large.
+
+dtype (None, numpy.dtype, or its constructor argument) – If None, present only the bytes as decimal values (0-255). Otherwise, also interpret them as an array of a given NumPy type.
+
+offset (int) – Number of bytes to skip before interpreting a dtype; can be helpful if the numerical values are out of phase with the first byte shown. Not to be confused with skip_bytes, which determines which bytes are shown at all. Any offset values that are equivalent modulo dtype.itemsize show equivalent interpretations.
+
+stream (object with a write(str) method) – Stream to write the debugging output to.
+
+Presents the data for one entry as raw bytes.
+
+Example output with dtype=">f4" and offset=3.
+
+--+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+-
+123 123 123  63 140 204 205  64  12 204 205  64  83  51  51  64 140 204 205  64
+  {   {   {   ? --- --- ---   @ --- --- ---   @   S   3   3   @ --- --- ---   @
+                        1.1             2.2             3.3             4.4
+    --+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+-
+    176   0   0  64 211  51  51  64 246 102 102  65  12 204 205  65  30 102 102  66
+    --- --- ---   @ ---   3   3   @ ---   f   f   A --- --- ---   A ---   f   f   B
+            5.5             6.6             7.7             8.8             9.9
+    --+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+-
+    202   0   0  67  74   0   0  67 151 128   0 123 123
+    --- --- ---   C   J --- ---   C --- --- ---   {   {
+          101.0           202.0           303.0
+debug_array
+Inherited from uproot.TBranch.
+
+Model_TBranch_v13.debug_array(entry, skip_bytes=0, dtype=dtype('uint8'))
+Parameters
+:
+entry (int) – Entry number to inspect. Note: this debugging routine is not applicable to data without entry offsets (nor would it be needed).
+
+skip_bytes (int) – Number of bytes to skip before presenting the remainder of the entry. May be negative, to examine the byte stream before the entry.
+
+dtype (numpy.dtype or its constructor argument) – Data type in which to interpret the data. (The size of the array returned is truncated to this dtype.itemsize.)
+
+Like debug, but returns a NumPy array for further inspection.
+
+branches
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.branches
+The list of uproot.TBranch directly under this uproot.TTree or uproot.TBranch (i.e. not recursive).
+
+show
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.show(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True, full_paths=True, name_width=20, typename_width=24, interpretation_width=30, stream=<_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, recursively descend into the branches’ branches.
+
+full_paths (bool) – If True, include the full path to each subbranch with slashes (/); otherwise, use the descendant’s name as the display name.
+
+name_width (int) – Number of characters to reserve for the TBranch names.
+
+typename_width (int) – Number of characters to reserve for the C++ typenames.
+
+interpretation_width (int) – Number of characters to reserve for the uproot.interpretation.Interpretation displays.
+
+stream (object with a write(str) method) – Stream to write the output to.
+
+Interactively display the TBranches.
+
+For example,
+
+name                 | typename             | interpretation
+---------------------+----------------------+-----------------------------------
+event_number         | int32_t              | AsDtype('>i4')
+trigger_isomu24      | bool                 | AsDtype('bool')
+eventweight          | float                | AsDtype('>f4')
+MET                  | TVector2             | AsStridedObjects(Model_TVector2_v3
+jetp4                | std::vector<TLorentz | AsJagged(AsStridedObjects(Model_TL
+jetbtag              | std::vector<float>   | AsJagged(AsDtype('>f4'), header_by
+jetid                | std::vector<bool>    | AsJagged(AsDtype('bool'), header_b
+arrays
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.arrays(expressions=None, cut=None, *, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, aliases=None, language=uproot.language.python.PythonLanguage(), entry_start=None, entry_stop=None, decompression_executor=None, interpretation_executor=None, array_cache='inherit', library='ak', ak_add_doc=False, how=None, virtual=False, access_log=None)
+Parameters
+:
+expressions (None, str, or list of str) – Names of TBranches or aliases to convert to arrays or mathematical expressions of them. Uses the language to evaluate. If None, all TBranches selected by the filters are included.
+
+cut (None or str) – If not None, this expression filters all of the expressions.
+
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. If the function returns False or None, the TBranch is excluded; if the function returns True, it is included with its standard interpretation; if an uproot.interpretation.Interpretation, this interpretation overrules the standard one.
+
+aliases (None or dict of str → str) – Mathematical expressions that can be used in expressions or other aliases (without cycles). Uses the language engine to evaluate. If None, only the aliases are available.
+
+language (uproot.language.Language) – Language used to interpret the expressions and aliases.
+
+entry_start (None or int) – The first entry to include. If None, start at zero. If negative, count from the end, like a Python slice.
+
+entry_stop (None or int) – The first entry to exclude (i.e. one greater than the last entry to include). If None, stop at num_entries. If negative, count from the end, like a Python slice.
+
+decompression_executor (None or Executor with a submit method) – The executor that is used to decompress TBaskets; if None, the file’s decompression_executor is used.
+
+interpretation_executor (None or Executor with a submit method) – The executor that is used to interpret uncompressed TBasket data as arrays; if None, the file’s interpretation_executor is used.
+
+array_cache ("inherit", None, MutableMapping, or memory size) – Cache of arrays; if “inherit”, use the file’s cache; if None, do not use a cache; if a memory size, create a new cache of this size.
+
+library (str or uproot.interpretation.library.Library) – The library that is used to represent arrays. Options are "np" for NumPy, "ak" for Awkward Array, and "pd" for Pandas.
+
+ak_add_doc (bool | dict) – If True and library="ak", add the TBranch title to the Awkward __doc__ parameter of the array. if dict = {key:value} and library="ak", add the TBranch value to the Awkward key parameter of the array.
+
+how (None, str, or container type) – Library-dependent instructions for grouping. The only recognized container types are tuple, list, and dict. Note that the container type itself must be passed as how, not an instance of that type (i.e. how=tuple, not how=()).
+
+virtual (bool) – If True, return virtual arrays that compute their data on demand; if False, return fully realized arrays.
+
+access_log (None or object with a __iadd__ method) – If an access_log is provided, e.g. a list, all materializations of the arrays are tracked inside this reference. Only applies if virtual=True.
+
+Returns a group of arrays from the TTree.
+
+For example:
+
+my_tree["x"].array()
+<Array [-41.2, 35.1, 35.1, ... 32.4, 32.5] type='2304 * float64'>
+my_tree["y"].array()
+<Array [17.4, -16.6, -16.6, ... 1.2, 1.2, 1.2] type='2304 * float64'>
+Or read lazily with awkward’s virtual arrays:
+
+my_tree.arrays(virtual=True, )
+<Array [{run: ??, ...}, ..., {run: ??, ...}] type='40 * {run: uint32, lumin...'>
+access_log = []
+array = my_tree.arrays(virtual=True, access_log=access_log)
+ak.materialize(array.run)
+print(access_log)
+[Accessed(branch='run', buffer_key="('<root>', 'run')-data")]
+See also array to read a single TBranch as an array.
+
+See also iterate to iterate over the array in contiguous ranges of entries.
+
+iterate
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.iterate(expressions=None, cut=None, *, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, aliases=None, language=uproot.language.python.PythonLanguage(), entry_start=None, entry_stop=None, step_size='100 MB', decompression_executor=None, interpretation_executor=None, library='ak', ak_add_doc=False, how=None, report=False)
+Parameters
+:
+expressions (None, str, or list of str) – Names of TBranches or aliases to convert to arrays or mathematical expressions of them. Uses the language to evaluate. If None, all TBranches selected by the filters are included.
+
+cut (None or str) – If not None, this expression filters all of the expressions.
+
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. If the function returns False or None, the TBranch is excluded; if the function returns True, it is included with its standard interpretation; if an uproot.interpretation.Interpretation, this interpretation overrules the standard one.
+
+aliases (None or dict of str → str) – Mathematical expressions that can be used in expressions or other aliases (without cycles). Uses the language engine to evaluate. If None, only the aliases are available.
+
+language (uproot.language.Language) – Language used to interpret the expressions and aliases.
+
+entry_start (None or int) – The first entry to include. If None, start at zero. If negative, count from the end, like a Python slice.
+
+entry_stop (None or int) – The first entry to exclude (i.e. one greater than the last entry to include). If None, stop at num_entries. If negative, count from the end, like a Python slice.
+
+step_size (int or str) – If an integer, the maximum number of entries to include in each iteration step; if a string, the maximum memory size to include. The string must be a number followed by a memory unit, such as “100 MB”.
+
+decompression_executor (None or Executor with a submit method) – The executor that is used to decompress TBaskets; if None, the file’s decompression_executor is used.
+
+interpretation_executor (None or Executor with a submit method) – The executor that is used to interpret uncompressed TBasket data as arrays; if None, the file’s interpretation_executor is used.
+
+library (str or uproot.interpretation.library.Library) – The library that is used to represent arrays. Options are "np" for NumPy, "ak" for Awkward Array, and "pd" for Pandas.
+
+ak_add_doc (bool | dict) – If True and library="ak", add the TBranch title to the Awkward __doc__ parameter of the array. if dict = {key:value} and library="ak", add the TBranch value to the Awkward key parameter of the array.
+
+how (None, str, or container type) – Library-dependent instructions for grouping. The only recognized container types are tuple, list, and dict. Note that the container type itself must be passed as how, not an instance of that type (i.e. how=tuple, not how=()).
+
+report (bool) – If True, this generator yields (arrays, uproot.behaviors.TBranch.Report) pairs; if False, it only yields arrays. The report has data about the TFile, TTree, and global and local entry ranges.
+
+Iterates through contiguous chunks of entries from the TTree.
+
+For example:
+
+for array in tree.iterate(["x", "y"], step_size=100):
+    # each of the following have 100 entries
+    array["x"], array["y"]
+See also arrays to read everything in a single step, without iteration.
+
+See also uproot.iterate to iterate over many files.
+
+keys
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.keys(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True, full_paths=True, ignore_duplicates=False)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return the names of branches directly accessible under this object.
+
+full_paths (bool) – If True, include the full path to each subbranch with slashes (/); otherwise, use the descendant’s name as the output name.
+
+ignore_duplicates (bool) – If True, return a set of the keys; otherwise, return the full list of keys.
+
+Returns the names of the subbranches as a list of strings.
+
+values
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.values(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return branches that are directly accessible under this object.
+
+Returns the subbranches as a list of uproot.TBranch.
+
+(Note: with recursive=False, this is the same as branches.)
+
+items
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.items(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True, full_paths=True)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return (name, branch) pairs for branches directly accessible under this object.
+
+full_paths (bool) – If True, include the full path to each subbranch with slashes (/) in the name; otherwise, use the descendant’s name as the name without modification.
+
+Returns (name, branch) pairs of the subbranches as a list of 2-tuples of (str, uproot.TBranch).
+
+typenames
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.typenames(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True, full_paths=True)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return (name, typename) pairs for branches directly accessible under this object.
+
+full_paths (bool) – If True, include the full path to each subbranch with slashes (/) in the name; otherwise, use the descendant’s name as the name without modification.
+
+Returns (name, typename) pairs of the subbranches as a dict of str → str.
+
+iterkeys
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.iterkeys(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True, full_paths=True, ignore_duplicates=False)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return the names of branches directly accessible under this object.
+
+full_paths (bool) – If True, include the full path to each subbranch with slashes (/); otherwise, use the descendant’s name as the output name.
+
+ignore_duplicates (bool) – If True, return a set of the keys; otherwise, return the full list of keys.
+
+Returns the names of the subbranches as an iterator over strings.
+
+itervalues
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.itervalues(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return branches that are directly accessible under this object.
+
+Returns the subbranches as an iterator over uproot.TBranch.
+
+(Note: with recursive=False, this is the same as branches.)
+
+iteritems
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.iteritems(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True, full_paths=True, ignore_duplicates=False)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return (name, branch) pairs for branches directly accessible under this object.
+
+full_paths (bool) – If True, include the full path to each subbranch with slashes (/) in the name; otherwise, use the descendant’s name as the name without modification.
+
+ignore_duplicates (bool) – If True, return a set of the keys; otherwise, return the full list of keys.
+
+Returns (name, branch) pairs of the subbranches as an iterator over 2-tuples of (str, uproot.TBranch).
+
+itertypenames
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.itertypenames(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True, full_paths=True)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only return (name, typename) pairs for branches directly accessible under this object.
+
+full_paths (bool) – If True, include the full path to each subbranch with slashes (/) in the name; otherwise, use the descendant’s name as the name without modification.
+
+Returns (name, typename) pairs of the subbranches as an iterator over 2-tuples of (str, str).
+
+num_entries_for
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.num_entries_for(memory_size, expressions=None, cut=None, *, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, aliases=None, language=uproot.language.python.PythonLanguage(), entry_start=None, entry_stop=None)
+Parameters
+:
+memory_size (int or str) – An integer is interpreted as a number of bytes and a string must be a number followed by a unit, such as “100 MB”.
+
+expressions (None, str, or list of str) – Names of TBranches or aliases to convert to arrays or mathematical expressions of them. Uses the language to evaluate. If None, all TBranches selected by the filters are included.
+
+cut (None or str) – If not None, this expression filters all of the expressions.
+
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+aliases (None or dict of str → str) – Mathematical expressions that can be used in expressions or other aliases (without cycles). Uses the language engine to evaluate. If None, only the aliases are available.
+
+language (uproot.language.Language) – Language used to interpret the expressions and aliases.
+
+entry_start (None or int) – The first entry to include. If None, start at zero. If negative, count from the end, like a Python slice.
+
+entry_stop (None or int) – The first entry to exclude (i.e. one greater than the last entry to include). If None, stop at num_entries. If negative, count from the end, like a Python slice.
+
+Returns an approximate step size as a number of entries to read a given memory_size in each step.
+
+This method does not actually read the TBranch data or compute any expressions to arrive at its estimate. It only uses metadata from the already-loaded TTree; it only needs language to parse the expressions, not to evaluate them.
+
+In addition, the estimate is based on compressed TBasket sizes (the amount of data that would have to be read), not uncompressed TBasket sizes (the amount of data that the final arrays would use in memory, without considering cuts).
+
+This is the algorithm that iterate uses to convert a step_size expressed in memory units into a number of entries.
+
+common_entry_offsets
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.common_entry_offsets(*, filter_name=<function no_filter>, filter_typename=<function no_filter>, filter_branch=<function no_filter>, recursive=True)
+Parameters
+:
+filter_name (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by name.
+
+filter_typename (None, glob string, regex string in "/pattern/i" syntax, function of str → bool, or iterable of the above) – A filter to select TBranches by type.
+
+filter_branch (None or function of uproot.TBranch → bool, uproot.interpretation.Interpretation, or None) – A filter to select TBranches using the full uproot.TBranch object. The TBranch is included if the function returns True, excluded if it returns False.
+
+recursive (bool) – If True, descend into any nested subbranches. If False, only consider branches directly accessible under this object. (Only applies when branches=None.)
+
+Returns entry offsets in which TBasket boundaries align in the specified set of branches.
+
+If this uproot.TBranch has no subbranches, the output is identical to entry_offsets.
+
+source
+Inherited from uproot.behaviors.TBranch.HasBranches.
+
+Model_TBranch_v13.source
+Returns the associated source of data for this container, if it exists
+
+Returns: uproot.source.chunk.Source or None
+
+classname
+Inherited from uproot.Model.
+
+Model_TBranch_v13.classname
+The C++ (decoded) classname of the modeled class.
+
+See uproot.classname_decode, uproot.classname_encode, and uproot.model.classname_version.
+
+encoded_classname
+Inherited from uproot.Model.
+
+Model_TBranch_v13.encoded_classname
+The Python (encoded) classname of the modeled class. May or may not include version.
+
+See uproot.classname_decode, uproot.classname_encode, and uproot.model.classname_version.
+
+class_version
+Inherited from uproot.Model.
+
+Model_TBranch_v13.class_version
+The version number of the modeled class (int) if any; None otherwise.
+
+See uproot.classname_decode, uproot.classname_encode, and uproot.model.classname_version.
+
+cursor
+Inherited from uproot.Model.
+
+Model_TBranch_v13.cursor
+A cursor pointing to the start of this instance in the byte stream (before read_numbytes_version).
+
+file
+Inherited from uproot.Model.
+
+Model_TBranch_v13.file
+A uproot.ReadOnlyFile, which may be open and readable, or a uproot.reading.DetachedFile, which only contains information about the original file (not an open file handle).
+
+close
+Inherited from uproot.Model.
+
+Model_TBranch_v13.close()
+Closes the file from which this object is derived, if such a file is still attached (i.e. not uproot.reading.DetachedFile).
+
+closed
+Inherited from uproot.Model.
+
+Model_TBranch_v13.closed
+True if the associated file is known to be closed; False if it is known to be open. If the associated file is detached (uproot.reading.DetachedFile), then the value is None.
+
+parent
+Inherited from uproot.Model.
+
+Model_TBranch_v13.parent
+The object that was deserialized before this one in recursive descent, usually the containing object (or the container’s container).
+
+concrete
+Inherited from uproot.Model.
+
+Model_TBranch_v13.concrete
+The Python instance corresponding to the concrete (instantiated) class in C++, which is self if this is the concrete class or another object if this is actually a holder of superclass members for that other object (i.e. if this object is in the other’s bases).
+
+members
+Inherited from uproot.Model.
+
+Model_TBranch_v13.members
+A dict of C++ member data directly associated with this class (i.e. not its superclasses). For all members, see all_members.
+
+all_members
+Inherited from uproot.Model.
+
+Model_TBranch_v13.all_members
+A dict of C++ member data for this class and its superclasses. For only direct members, see members.
+
+has_member
+Inherited from uproot.Model.
+
+Model_TBranch_v13.has_member(name, all=True)
+Returns True if calling member with the same arguments would return a value; False if the member is missing.
+
+member
+Inherited from uproot.Model.
+
+Model_TBranch_v13.member(name, all=True, none_if_missing=False)
+Parameters
+:
+name (str) – The name of the member datum to retrieve.
+
+all (bool) – If True, recursively search all superclasses in bases. Otherwise, search the direct class only.
+
+none_if_missing (bool) – If a member datum doesn’t exist in the search path, none_if_missing=True has this function return None, but none_if_missing=False would have it raise an exception. Note that None is a possible value for some member data.
+
+Returns a C++ member datum by name.
+
+bases
+Inherited from uproot.Model.
+
+Model_TBranch_v13.bases
+List of uproot.Model objects representing superclass data for this object in the order given in C++ (opposite method resolution order).
+
+If this object has no superclasses, bases is empty.
+
+If it has one superclass, which itself might have superclasses, bases has length 1.
+
+Only if this object multiply inherits from more than one superclass at the same level does bases have length greater than 1.
+
+Since multiple inheritance is usually avoided, bases rarely has length greater than 1. A linear chain of superclasses deriving from super-superclasses is represented by bases containing an object whose bases contains objects.
+
+base
+Inherited from uproot.Model.
+
+Model_TBranch_v13.base(*cls)
+Extracts instances from bases by Python class type.
+
+The cls arguments may be Python classes or C++ classname strings to match.
+
+is_instance
+Inherited from uproot.Model.
+
+Model_TBranch_v13.is_instance(*cls)
+Returns True if this object matches a given type in the C++ class hierarchy.
+
+The cls arguments may be Python classes or C++ classname strings to match.
+
+num_bytes
+Inherited from uproot.Model.
+
+Model_TBranch_v13.num_bytes
+Number of bytes expected in the (uncompressed) serialization of this instance.
+
+This value may be None (unknown before reading) or an integer.
+
+If the value is an integer and the object exists (no exceptions in read), then the expected number of bytes agreed with the actual number of bytes, and this numer is reliable.
+
+If this object is re-serialized, it won’t necessarily occupy the same number of bytes.
+
+instance_version
+Inherited from uproot.Model.
+
+Model_TBranch_v13.instance_version
+Version of this instance as read from the byte stream.
+
+If this model is versioned (uproot.model.VersionedModel), the instance_version ought to be equal to the class_version.
+
+If this model is versionless, the instance_version contains new information about the actual version deserialized.
+
+is_memberwise
+Inherited from uproot.Model.
+
+Model_TBranch_v13.is_memberwise
+True if the object was serialized in ROOT’s memberwise format; False otherwise.
+
+awkward_form
+Inherited from uproot.Model.
+
+classmethodModel_TBranch_v13.awkward_form(file, context)
+Parameters
+:
+cls (subclass of uproot.Model) – This class.
+
+file (uproot.ReadOnlyFile) – File to use to generate uproot.Model classes from its streamers and file_path for error messages.
+
+context (dict) – Context for the Form-generation; defaults are the remaining arguments below.
+
+index_format (str) – Format to use for indexes of the awkward.forms.Form; may be "i32", "u32", or "i64".
+
+header (bool) – If True, include header fields of each C++ class.
+
+tobject_header (bool) – If True, include header fields of each TObject base class.
+
+breadcrumbs (tuple of class objects) – Used to check for recursion. Types that contain themselves cannot be Awkward Arrays because the depth of instances is unknown.
+
+The awkward.forms.Form to use to put objects of type type in an Awkward Array.
+
+strided_interpretation
+Inherited from uproot.Model.
+
+classmethodModel_TBranch_v13.strided_interpretation(file, header=False, tobject_header=True, breadcrumbs=(), original=None)
+Parameters
+:
+cls (subclass of uproot.Model) – This class.
+
+file (uproot.ReadOnlyFile) – File to use to generate uproot.Model classes from its streamers and file_path for error messages.
+
+header (bool) – If True, assume the outermost object has a header.
+
+tobject_header (bool) – If True, assume that TObjects have headers.
+
+original (None, uproot.Model, or uproot.containers.Container) – The original, non-strided model or container.
+
+breadcrumbs (tuple of class objects) – Used to check for recursion. Types that contain themselves cannot be strided because the depth of instances is unknown.
+
+Returns a list of (str, numpy.dtype) pairs to build a uproot.AsStridedObjects interpretation.
+
+tojson
+Inherited from uproot.Model.
+
+Model_TBranch_v13.tojson()
+Serializes this object in its ROOT JSON form (as Python lists and dicts, which can be passed to json.dump or json.dumps).
+
+empty
+Inherited from uproot.Model.
+
+classmethodModel_TBranch_v13.empty()
+Creates a model instance (of subclass cls) with no data; all required attributes are None or empty.
+
+read
+Inherited from uproot.Model.
+
+classmethodModel_TBranch_v13.read(chunk, cursor, context, file, selffile, parent, concrete=None)
+Parameters
+:
+cls (subclass of uproot.Model) – Class to instantiate.
+
+chunk (uproot.source.chunk.Chunk) – Buffer of contiguous data from the file uproot.source.chunk.Source.
+
+cursor (uproot.Cursor) – Current position in that chunk.
+
+context (dict) – Auxiliary data used in deserialization.
+
+file (uproot.ReadOnlyFile) – An open file object, capable of generating new uproot.Model classes from its streamers.
+
+selffile (uproot.reading.CommonFileMethods) – A possibly uproot.reading.DetachedFile associated with this object.
+
+parent (None or calling object) – The previous read in the recursive descent.
+
+concrete (None or uproot.Model instance) – If None, this model corresponds to the concrete (instantiated) class in C++. Otherwise, this model represents a superclass part of the object, and concrete points to the concrete instance.
+
+Creates a model instance by reading data from a file.
+
+read_numbytes_version
+Inherited from uproot.Model.
+
+Model_TBranch_v13.read_numbytes_version(chunk, cursor, context)
+Parameters
+:
+chunk (uproot.source.chunk.Chunk) – Buffer of contiguous data from the file uproot.source.chunk.Source.
+
+cursor (uproot.Cursor) – Current position in that chunk.
+
+context (dict) – Auxiliary data used in deserialization.
+
+Reads the number of bytes and instance version from the byte stream, which is usually 6 bytes (4 + 2). Bits with special meanings are appropriately masked out.
+
+Some types don’t have a 6-byte header or handle it differently; in those cases, this method should be overridden.
+
+read_members
+Inherited from uproot.Model.
+
+Model_TBranch_v13.read_members(chunk, cursor, context, file)
+Parameters
+:
+chunk (uproot.source.chunk.Chunk) – Buffer of contiguous data from the file uproot.source.chunk.Source.
+
+cursor (uproot.Cursor) – Current position in that chunk.
+
+context (dict) – Auxiliary data used in deserialization.
+
+file (uproot.ReadOnlyFile) – An open file object, capable of generating new uproot.Model classes from its streamers.
+
+Reads the member data for this class. The abstract class uproot.Model has an empty read_members method; this must be overridden by subclasses.
+
+check_numbytes
+Inherited from uproot.Model.
+
+Model_TBranch_v13.check_numbytes(chunk, cursor, context)
+Parameters
+:
+chunk (uproot.source.chunk.Chunk) – Buffer of contiguous data from the file uproot.source.chunk.Source.
+
+cursor (uproot.Cursor) – Current position in that chunk.
+
+context (dict) – Auxiliary data used in deserialization.
+
+Reads nothing; checks the expected number of bytes against the actual movement of the cursor at the end of the object, possibly raising a uproot.DeserializationError exception.
+
+If num_bytes is None, this method does nothing.
+
+It is possible that a subclass would override this method, but not likely.
+
+postprocess
+Inherited from uproot.Model.
+
+Model_TBranch_v13.postprocess(chunk, cursor, context, file)
+Parameters
+:
+chunk (uproot.source.chunk.Chunk) – Buffer of contiguous data from the file uproot.source.chunk.Source.
+
+cursor (uproot.Cursor) – Current position in that chunk.
+
+context (dict) – Auxiliary data used in deserialization.
+
+file (uproot.ReadOnlyFile) – An open file object, capable of generating new uproot.Model classes from its streamers.
+
+Called for any additional processing after the object has been fully read.
+
+The return value from this method is the object that actually represents the ROOT data, which might be a different instance or even a different type from this class. The default in uproot.Model is to return self.
+
+Note that for versioned models, postprocess is called first, then postprocess is called on its output, allowing a uproot.model.DispatchByVersion to refine all data of its type, regardless of version.
+
+hook_before_read
+Inherited from uproot.Model.
+
+Model_TBranch_v13.hook_before_read(**kwargs)
+Called in read, before any data have been read.
+
+hook_before_read_members
+Inherited from uproot.Model.
+
+Model_TBranch_v13.hook_before_read_members(**kwargs)
+Called in read, after read_numbytes_version and before read_members.
+
+hook_after_read_members
+Inherited from uproot.Model.
+
+Model_TBranch_v13.hook_after_read_members(**kwargs)
+Called in read, after read_members and before check_numbytes.
+
+hook_before_postprocess
+Inherited from uproot.Model.
+
+Model_TBranch_v13.hook_before_postprocess(**kwargs)
+Called in read, after check_numbytes and before postprocess.
+
+to_writable
+Inherited from uproot.Model.
+
+Model_TBranch_v13.to_writable()
+Parameters
+:
+obj (uproot.Model instance of the same C++ class) – The object to convert to this class version.
+
+Returns a writable version of this object or raises a NotImplementedError if no writable version exists.
+
+serialize
+Inherited from uproot.Model.
+
+Model_TBranch_v13.serialize(name=None)
+Serialize a object (from num_bytes and version onward) for writing into an output ROOT file.
+
+If a name is given, override the object’s current name.
+
+This method has not been implemented on all classes (raises NotImplementedError).
+
+to_pyroot
+Inherited from uproot.Model.
+
+Model_TBranch_v13.to_pyroot(name=None)
+Parameters
+:
+name (str or None) – A name for the new PyROOT object.
+
+Converts this uproot.Model into a PyROOT object if it is writable. A minority of Uproot models are writable, mostly just histograms. Writability is necessary for conversion to PyROOT because it is serialized through a ROOT TMessage.
+
