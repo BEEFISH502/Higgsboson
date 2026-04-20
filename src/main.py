@@ -1,10 +1,13 @@
 from pathlib import Path
 import uproot
+import plotting
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 def main():
     ## initiates project, grab our root file, and sort through the rough 1 million pieces of data found in it. ##
     ## without this this amount of data would be extremely overwhelming (still is but manageable##
-    root_file = Path("data/raw/00334566_00000001_1.dvntuple.root")
+    root_file = BASE_DIR / "data" / "raw" / "00334566_00000001_1.dvntuple.root"
 
     if not root_file.exists():
         raise FileNotFoundError(f"File {root_file} not found")
@@ -34,7 +37,7 @@ def main():
                 grouped[category].append(branch.name)
                 print(f"{branch.name} is in {category}")
 
-
+    result = dummy_root_txt()
 
 
 
@@ -67,6 +70,16 @@ def create_txt(grouped):
         with output_file.open("w", encoding='utf-8') as file:
             for branch_name in grouped[key]:
                 file.write(f'{branch_name}\n')
+
+def dummy_root_txt():
+    input_file = BASE_DIR / "data" / "docs" / "kinematics.txt"
+    kinematics_data = plotting.get_kinematics(input_file)
+    matched_data = plotting.get_root(kinematics_data)
+    output_file = BASE_DIR / "data" / "processed" / "root_kinematics.txt"
+    with output_file.open("w", encoding='utf-8') as file:
+        for key,value in matched_data.items():
+            file.write(f'{key} : {value}\n')
+
 
 if __name__ == '__main__':
     main()

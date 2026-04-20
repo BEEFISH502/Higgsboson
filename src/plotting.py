@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def get_kinematics(doc_path: Path = BASE_DIR / "data" / "docs" / "Kinematics.txt"):
+def get_kinematics(doc_path: Path = BASE_DIR / "data" / "docs" / "kinematics.txt"):
     ## calling our initial .txt file for easy uproot lookup ##
     if not doc_path.exists():
         print(f"File {doc_path} not found")
@@ -79,6 +79,10 @@ def plot_kinematics(kinematics_data):
 def main():
     kinematics_data = get_kinematics()
     plot_kinematics(kinematics_data)
+    matched_data = get_root(kinematics_data)
+    print(matched_data)
 
-main()
+
+if __name__ == '__main__':
+    main()
 

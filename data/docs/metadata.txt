@@ -1,0 +1,15 @@
+nCandidate
+totCandidates
+EventInSequence
+runNumber
+eventNumber
+BCID
+BCType
+OdinTCK
+L0DUTCK
+HLT1TCK
+HLT2TCK
+GpsTime
+Polarity
+IntegratedLuminosity
+IntegratedLuminosityErr
