@@ -92,7 +92,13 @@ def update_root(data, root_path: Path = BASE_DIR / "data" / "raw" / "00334566_00
                "isMuon": None,
                "ID": None,
            },
-       },
+           "Bplus": {
+               "ID": None,
+           },
+           "J_psi_1S": {
+               "ID": None,
+           },
+        },
         "detector_presence": {
             "muplus": {
                 "hasCalo": None,
@@ -451,6 +457,16 @@ def update_root(data, root_path: Path = BASE_DIR / "data" / "raw" / "00334566_00
                     "MM": None,
                     "MMERR": None,
                     "ID": None,
+                },
+                "muplus":{
+                    "ENDVERTEX_X": None,
+                    "ENDVERTEX_Y": None,
+                    "ENDVERTEX_Z": None,
+                },
+                "muminus": {
+                    "ENDVERTEX_X": None,
+                    "ENDVERTEX_Y": None,
+                    "ENDVERTEX_Z": None,
                 },
             },
 

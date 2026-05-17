@@ -1,5 +1,4 @@
 from pathlib import Path
-import uproot
 import awkward
 import matplotlib.pyplot as plt
 import build_godot as godot
