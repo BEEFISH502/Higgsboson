@@ -1,38 +1,7 @@
-from os import name
-
 import build_godot as gd
 
 def root_data():
     return gd.get_root()
-
-'''
-class Category:
-    def __init__(self, root):
-        self.root = root
-        self.categories = list(self.root.keys())
-
-    def get_category(self):
-        return self.categories
-
-    def identity(self):
-        return self.root.get("identity")
-
-    def kinematics(self):
-        return self.root.get("kinematics")
-
-    def track_vertex(self):
-        return self.root.get("track_vertex")
-
-    def vertex_decay(self):
-        return self.root.get("vertex_decay")
-
-    def category(self):
-        identity = self.identity()
-        kinematics = self.kinematics()
-        track_vartex = self.track_vertex()
-        vertex_decay = self.vertex_decay()
-        return identity, kinematics, track_vartex, vertex_decay
-'''
 
 class Particle:
     def __init__(self, root, name):
@@ -40,7 +9,7 @@ class Particle:
         self.name = name
         self.id = None
         self.p = None
-        self. px = None
+        self.px = None
         self.py = None
         self.pz = None
         self.pt = None
@@ -57,9 +26,9 @@ class Particle:
 
 
     def load_momentum(self):
-        self.px = self.root["kinematics"][self.name]["PY"]
-        self.py = self.root["kinematics"][self.name]["PZ"]
-        self.pz = self.root["kinematics"][self.name]["PT"]
+        self.px = self.root["kinematics"][self.name]["PX"]
+        self.py = self.root["kinematics"][self.name]["PY"]
+        self.pz = self.root["kinematics"][self.name]["PZ"]
 
         self.momentum = [self.px, self.py, self.pz]
 
@@ -125,7 +94,7 @@ class Particle:
 
 
 
-def main():
+def get_particles():
     root = root_data()
     muplus = Particle(root, 'muplus').blueprint()
     muminus = Particle(root, 'muminus').blueprint()
@@ -133,9 +102,11 @@ def main():
     kplus = Particle(root, 'Kplus').blueprint()
     jpsi = Particle(root, 'J_psi_1S').blueprint()
 
+    return muplus, muminus, bplus, kplus, jpsi
+
 
 if __name__ == '__main__':
-    main()
+    get_particles()
 
 
 

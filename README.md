@@ -107,7 +107,7 @@ additionally you may print bplus by itself and it should return a formatted list
  Mass: plus.mass
  Energy: bplus.e
  Start: bplus.start: x, y, z
- Enb: x, y, z
+ End: x, y, z
 "
 
 I would love to go in-depth with the meaning of this data and how it fits together; however, that would take an exoberent amount of time.
@@ -121,7 +121,7 @@ momentum is the the direction and magnitude of the particles movement
 
 id = positively charged or negatively charged particle
 
-you will need event[0] for all verticles to succesfully track the movement of one whole event. 
+you will need event[0] for all particles to succesfully track the movement of one whole event. 
 
 that's it in a nutshell, to learn more about these particles there are tons of information out there to help with this:) 
 this is all you need to know to get started with my program.
